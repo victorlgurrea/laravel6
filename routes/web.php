@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('home/{nombre?}/{apellido?}', function ( $nombre = 'Pepe', $apellido = "García") {
+    
+    $array_data['nombre'] = $nombre;
+    $array_data['apellido'] = $apellido;
+    $array_data['posts'] = ["post1","post2","post3","post4"];
+    $array_data['posts2'] = null;
+
+    return view('home')->with($array_data);;
+})->name("home");
+
+//Dashboard admin
+Route::resource('dashboard/post', 'dashboard\PostController');
