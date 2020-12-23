@@ -35,7 +35,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        echo "Hola mundo";
+        //echo $request->input('title', 'sin titulo');
+        $name = $request->title;
+        dd($name);
     }
 
     /**
