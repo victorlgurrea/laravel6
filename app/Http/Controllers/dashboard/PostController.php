@@ -35,9 +35,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //echo $request->input('title', 'sin titulo');
-        $name = $request->title;
-        dd($name);
+        $request->validate([
+            'title' => 'required|min:5|max:500',
+            //'url_clean' => 'required|min:5|max:500',
+            'content' => 'required|min:5'
+        ]);
     }
 
     /**
