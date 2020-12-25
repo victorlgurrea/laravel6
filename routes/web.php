@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('home/{nombre?}/{apellido?}', function ( $nombre = 'Pepe', $apellido = "García") {
     
