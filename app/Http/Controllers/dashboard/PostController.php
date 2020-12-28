@@ -91,6 +91,10 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete($post);
-        return back()->with('status', 'Post eliminado con éxito!');
+        //return back()->with('status', 'Post eliminado con éxito!');
+        $posts = Post::orderBy('created_at', 'DESC')->paginate(10);
+        return view('dashboard.post.index',[
+            'posts' => $posts,
+        ])->with('status', 'Post eliminado!');
     }
 }

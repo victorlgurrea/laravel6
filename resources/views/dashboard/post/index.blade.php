@@ -49,5 +49,5 @@
         </div>
     </div>
 
-    @include('dashboard.partials.modal-confirm-delete')
+    @include('dashboard.partials.modal-confirm-delete', ['route' => 'post.destroy'])
 @endsection

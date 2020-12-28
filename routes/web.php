@@ -27,3 +27,4 @@ Route::get('home/{nombre?}/{apellido?}', function ( $nombre = 'Pepe', $apellido 
 
 //Dashboard admin
 Route::resource('dashboard/post', 'dashboard\PostController');
+Route::resource('dashboard/category', 'dashboard\CategoryController');

@@ -12,7 +12,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <form id="formDelete" method="POST" action="{{ route('post.destroy', 0) }}" data-action="{{ route('post.destroy', 0) }}">
+          <form id="formDelete" method="POST" action="{{ route($route, 0) }}" data-action="{{ route($route, 0) }}">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -23,14 +23,14 @@
   </div>
 
 <script>
-  window.onload(function() {
+  $( document ).ready(function() {
     $('#deleteModal').on('show.bs.modal', function (event) {
       console.log("Modal abierto");
       var button = $(event.relatedTarget) // Button that triggered the modal
       var id = button.data('id') // Extract info from data-* attributes
 
       var modal = $(this)
-      modal.find('.modal-title').text('Eliminar POST: ' + id)
+      modal.find('.modal-title').text('Eliminar registro: ' + id)
       var new_action = $('#formDelete').attr('data-action').slice(0,-1);
       //console.log(new_action + id);
       $('#formDelete').attr('action', new_action + id);
