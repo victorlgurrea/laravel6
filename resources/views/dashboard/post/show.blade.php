@@ -21,5 +21,17 @@
                 </div>
         </div>
     </div>  
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#content' ) )
+                .then( editor => {
+                        console.log( editor );
+                        editor.isReadOnly = true;
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+    </script>
+
 @endsection
    
