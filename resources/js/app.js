@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-const ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
 
 window.Vue = require('vue');
 

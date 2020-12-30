@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-
+/*
 Route::get('home/{nombre?}/{apellido?}', function ( $nombre = 'Pepe', $apellido = "García") {
     
     $array_data['nombre'] = $nombre;
@@ -24,7 +24,9 @@ Route::get('home/{nombre?}/{apellido?}', function ( $nombre = 'Pepe', $apellido 
 
     return view('home')->with($array_data);;
 })->name("home");
-
+*/
 //Dashboard admin
 Route::resource('dashboard/post', 'dashboard\PostController');
+Route::post('dashboard/post/{post}/image', 'dashboard\PostController@image')->name('post.image');
+
 Route::resource('dashboard/category', 'dashboard\CategoryController');

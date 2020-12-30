@@ -23,6 +23,7 @@
                 <thead>
                     <tr class="text-center">
                         <th>Titulo</th>
+                        <th>Categoria</th>
                         <th>Posteado</th>
                         <th>Fecha Creacion</th>
                         <th>Fecha Actualizacion</th>
@@ -33,7 +34,8 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td><a href="{{ route('post.show', $post->id) }}">{{ $post->title}}</a></td>
-                            <td><img class="mx-auto d-block" src="{{ ($post->posted == 'yes') ? asset('img/check.png') : asset('img/error.png') }}" width="20px" height="20px"/></td>
+                            <td>{{ $post->category->title }}</td>
+                            <td><img class="mx-auto d-block" src="{{ ($post->posted == 'yes') ? asset('img/resources/check.png') : asset('img/resources/error.png') }}" width="20px" height="20px"/></td>
                             <td class="text-center">{{ $post->created_at->format("d-m-Y H:i:s") }}</td>
                             <td class="text-center">{{ $post->updated_at->format("d-m-Y H:i:s") }}</td>
                             <td class="text-right">
