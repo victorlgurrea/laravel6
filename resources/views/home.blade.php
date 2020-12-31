@@ -1,35 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1> {{ "Mundo Laravel $nombre $apellido " }}</h1>
-    @isset($posts3)
-        Esta definido y no es null
-    @endisset
+@extends('layouts.app')
 
-    @empty($posts3)
-        posts3 esta vacio
-    @endempty
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-    <ul>
-        @forelse ($posts as $post)
-            <li>
-                @if ($loop->first)
-                    Primero:
-                @elseif ($loop->last)
-                    Ultimo:
-                @else 
-                    Medio:
-                @endif
-                {{ $post }}
-            </li>
-        @empty
-            <li>No hay posts</li>
-        @endforelse
-    </ul>
-</body>
-</html>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in! {{ auth()->user()->name }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
