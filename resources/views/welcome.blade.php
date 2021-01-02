@@ -85,7 +85,7 @@
                 </div>
 
                 @auth
-                    {{ "Bienvenido " . auth()->user()->name }}
+                    {{ "Bienvenido " . auth()->user()->rol->name . " " . auth()->user()->name }}
                 @endauth
             
                 @guest
