@@ -14,6 +14,8 @@
             <a class="dropdown-item" href="{{ route('post.index') }}">Posts</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('category.index') }}">Categorias</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ route('user.index') }}">Usuarios</a>
           </div>
         </li>
       </ul>
