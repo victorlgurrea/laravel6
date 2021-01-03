@@ -19,7 +19,7 @@ class PostController extends ApiResponseController
         join('post_images','post_images.post_id','=','posts.id')->
         join('categories','categories.id','=','posts.category_id')->
         select('posts.*','categories.title as category','post_images.image')->
-        orderBy('posts.created_at', 'DESC')->paginate(1);
+        orderBy('posts.created_at', 'DESC')->paginate(10);
         
         return $this->successResponse($posts);
     }
