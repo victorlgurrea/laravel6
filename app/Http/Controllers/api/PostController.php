@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Http\Controllers\Controller;
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostController extends ApiResponseController
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the posts.
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,29 +25,9 @@ class PostController extends ApiResponseController
         return $this->successResponse($posts);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Display the specified post.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -59,37 +40,20 @@ class PostController extends ApiResponseController
         return $this->successResponse($post);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
+     * Display the specified post's category.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function category(Category $category)
     {
-        //
+
+        return $this->successResponse([
+            'posts' => $category->post()->paginate(10),
+            'category' => $category,
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

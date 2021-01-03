@@ -20,3 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('post', 'api\PostController')->only([
     'index', 'show'
 ]);
+
+Route::get('post/{category}/category', 'api\PostController@category');
+
+Route::get('category/all', 'api\CategoryController@all');
+Route::get('category', 'api\CategoryController@index');
