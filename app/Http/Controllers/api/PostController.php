@@ -40,6 +40,19 @@ class PostController extends ApiResponseController
         return $this->successResponse($post);
     }
 
+    /**
+     * Display the specified post.
+     *
+     * @param  string  $url_clean
+     * @return \Illuminate\Http\Response
+     */
+    public function url_clean(String $url_clean)
+    {
+        $post = Post::where('url_clean', $url_clean)->firstOrFail();
+        $post->image;
+        $post->category;
+        return $this->successResponse($post);
+    }
 
     /**
      * Display the specified post's category.
